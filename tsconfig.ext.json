@@ -1,0 +1,7 @@
+{
+    "extends": "nodecg-io-tsconfig",
+    "include":[
+        "./extension",
+        "./src/replicant.ts"
+    ],
+}

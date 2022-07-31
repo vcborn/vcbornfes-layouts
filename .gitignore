@@ -1,0 +1,9 @@
+/node_modules/
+/.vscode/
+/.idea/
+/extension/*.js
+/extension/*.js.map
+/extension/*.d.ts
+/extension/*.d.ts.map
+/dashboard/
+/graphics/

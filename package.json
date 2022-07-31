@@ -1,0 +1,73 @@
+{
+  "name": "vcborn-fes",
+  "version": "0.1.0",
+  "private": true,
+  "nodecg": {
+    "compatibleRange": "^1.4.0",
+    "bundleDependencies": {
+      "nodecg-io-discord": "^0.2.0",
+      "nodecg-io-googleapis": "^0.2.1",
+      "nodecg-io-twitter": "^0.2.0"
+    },
+    "graphics": [
+      {
+        "file": "main.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "dashboardPanels": [
+      {
+        "name": "main",
+        "title": "画面配信",
+        "width": 3,
+        "file": "main.html",
+        "headerColor": "#525F78"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint 'src/**/*.{ts,tsx}' webpack.config.ts && tsc --noEmit --project tsconfig.webpack.json && tsc --noEmit",
+    "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}' webpack.config.ts && tsc --noEmit --project tsconfig.webpack.json && tsc --noEmit",
+    "build": "run-p build:*",
+    "build:css": "npx tailwindcss -i ./src/graphics/main/main.css -o ./graphics/main.css",
+    "build:webpack": "cross-env NODE_ENV='production' TS_NODE_PROJECT='tsconfig.webpack.json' webpack",
+    "build:extension": "tsc --project tsconfig.ext.json",
+    "watch": "run-p watch:*",
+    "watch:css": "npx tailwindcss -i ./src/graphics/main/main.css -o ./graphics/main.css --watch",
+    "watch:webpack": "cross-env NODE_ENV='production' TS_NODE_PROJECT='tsconfig.webpack.json' webpack --watch",
+    "watch:extension": "tsc --project tsconfig.ext.json --watch",
+    "postinstall": "patch-package"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/material": "^5.9.2",
+    "@types/node": "^18.6.2",
+    "nodecg-io-core": "^0.2.0",
+    "nodecg-io-discord": "^0.2.0",
+    "nodecg-io-googleapis": "^0.2.1",
+    "nodecg-io-tsconfig": "^1.0.0",
+    "nodecg-io-twitter": "^0.2.0",
+    "nodecg-types": "^1.8.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "twitter-api-v2": "^1.12.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "autoprefixer": "^10.4.8",
+    "cross-env": "^7.0.3",
+    "html-webpack-plugin": "^5.5.0",
+    "patch-package": "^6.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.7",
+    "ts-loader": "^9.3.1",
+    "ts-node": "^10.9.1",
+    "ts-nodecg": "^0.3.1",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
