@@ -1,5 +1,25 @@
 {
-    "extends": "nodecg-io-tsconfig",
+    "compilerOptions": {
+        "target": "es2019",
+        "module": "commonjs",
+        "lib": ["es2019"],
+        "declaration": true ,
+        "declarationMap": true,
+        "sourceMap": true,
+        "composite": true,
+        "importHelpers": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedIndexedAccess": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
     "include":[
         "./extension",
         "./src/replicant.ts"

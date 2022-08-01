@@ -36,5 +36,11 @@ const createBrowserConfig = (
     devtool: NODE_ENV === 'development' ? 'inline-source-map' : void 0
 });
 
-const config: Configuration[] = [createBrowserConfig('dashboard', 'main'), createBrowserConfig('graphics', 'main')];
+const config: Configuration[] = [
+    createBrowserConfig('dashboard', 'main'),
+    createBrowserConfig('dashboard', 'ad'),
+    createBrowserConfig('dashboard', 'next'),
+    createBrowserConfig('graphics', 'main'),
+    createBrowserConfig('graphics', 'waiting')
+];
 export default config;

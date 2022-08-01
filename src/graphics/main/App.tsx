@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useReplicant } from "../../hooks";
-import { useState } from "react";
 
 export const App: React.FC = () => {
 	const [main] = useReplicant("main");
 	const [chat] = useReplicant("chat");
+	const [data, setData] = useState(0);
+	const [refreshInterval, setRefreshInterval] = useState(1000);
+	const fetchMetrics = () => {
+		console.log(data)
+		setData(Math.floor(Math.random() * 1001))
+	}
+	useEffect(() => {
+		if (refreshInterval && refreshInterval > 0) {
+			const interval = setInterval(fetchMetrics, refreshInterval);
+			return () => clearInterval(interval);
+		}
+	}, [refreshInterval]);
 
 	if (typeof main === "undefined" || typeof chat === "undefined") return null;
 
 	return (
 		<div className="relative bg-primary h-screen w-full">
+			<p className="hidden">{data}</p>
 			<div className="absolute right-0 px-8 py-8 flex flex-col gap-4 max-w-[19rem] max-h-[80vh] overflow-clip">
 				{chat.map((item, index) => {
 					if (item.text === "") return null;
@@ -44,8 +56,8 @@ export const App: React.FC = () => {
 								{item.service === "twitter" && (
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
-										width="24"
-										height="24"
+										width="28"
+										height="28"
 										fill="#1da1f2"
 										viewBox="0 0 24 24"
 									>

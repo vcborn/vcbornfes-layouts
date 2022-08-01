@@ -4,7 +4,9 @@ export interface ReplicantMap {
         presentor: string;
         program: string;
     },
-    chat: Msgs
+    chat: Msgs,
+    ad: ad,
+    next: next
 }
 
 export const replicantDefaultValues: ReplicantMap = {
@@ -13,7 +15,9 @@ export const replicantDefaultValues: ReplicantMap = {
         presentor: "プレゼンター",
         program: "プログラム"
     },
-    chat: []
+    chat: [],
+    ad: [],
+    next: []
 };
 
 export type Msgs = {
@@ -28,6 +32,11 @@ export type Msgs = {
     };
 }[];
 
-
-
 export type Msg = Msgs[number];
+
+export type ad = string[];
+
+export type next = {
+    time: string;
+    event: string;
+}[];

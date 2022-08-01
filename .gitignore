@@ -7,3 +7,4 @@
 /extension/*.d.ts.map
 /dashboard/
 /graphics/
+*.tsbuildinfo

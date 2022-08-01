@@ -7,6 +7,8 @@ exports.replicantDefaultValues = {
         presentor: "プレゼンター",
         program: "プログラム"
     },
-    chat: []
+    chat: [],
+    ad: [],
+    next: []
 };
 //# sourceMappingURL=replicant.js.map

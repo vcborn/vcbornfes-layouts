@@ -5,6 +5,8 @@ export interface ReplicantMap {
         program: string;
     };
     chat: Msgs;
+    ad: ad;
+    next: next;
 }
 export declare const replicantDefaultValues: ReplicantMap;
 export declare type Msgs = {
@@ -19,4 +21,9 @@ export declare type Msgs = {
     };
 }[];
 export declare type Msg = Msgs[number];
+export declare type ad = string[];
+export declare type next = {
+    time: string;
+    event: string;
+}[];
 //# sourceMappingURL=replicant.d.ts.map
