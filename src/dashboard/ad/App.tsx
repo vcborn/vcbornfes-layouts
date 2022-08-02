@@ -5,6 +5,7 @@ import { TextField, Button, Grid, List, ListItem, ListItemText, ListItemButton, 
 const App: React.FC = () => {
 	const [ad, setAd] = useReplicant("ad");
     const [value, setValue] = useState("");
+    const [update, setUpdate] = useState(0);
 
 	if (typeof ad === "undefined") return null;
 
@@ -13,16 +14,23 @@ const App: React.FC = () => {
         temp.push(value)
         setAd(temp)
         setValue("")
+        setTimeout(() => {
+            setUpdate(Math.floor(Math.random() * 1000))
+        }, 200);
     }
 
     const deleteItem = (index: number) => {
         const temp = ad
         temp.splice(index, 1)
         setAd(temp)
+        setTimeout(() => {
+            setUpdate(Math.floor(Math.random() * 1000))
+        }, 200);
     }
 
 	return (
         <div>
+            <p style={{ display: "none" }}>{update}</p>
             <Grid container direction="column" alignItems="stretch" spacing={2}>
                 {ad.map((item, index) => {
                     return (

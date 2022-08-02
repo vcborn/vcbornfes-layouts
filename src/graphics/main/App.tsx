@@ -7,7 +7,6 @@ export const App: React.FC = () => {
 	const [data, setData] = useState(0);
 	const [refreshInterval, setRefreshInterval] = useState(1000);
 	const fetchMetrics = () => {
-		console.log(data)
 		setData(Math.floor(Math.random() * 1001))
 	}
 	useEffect(() => {

@@ -6,6 +6,7 @@ const App: React.FC = () => {
 	const [next, setNext] = useReplicant("next");
     const [time, setTime] = useState("");
     const [event, setEvent] = useState("");
+    const [update, setUpdate] = useState(0);
 
 	if (typeof next === "undefined") return null;
 
@@ -15,16 +16,23 @@ const App: React.FC = () => {
         setNext(temp)
         setTime("")
         setEvent("")
+        setTimeout(() => {
+            setUpdate(Math.floor(Math.random() * 1000))
+        }, 200);
     }
 
     const deleteItem = (index: number) => {
         const temp = next
         temp.splice(index, 1)
         setNext(temp)
+        setTimeout(() => {
+            setUpdate(Math.floor(Math.random() * 1000))
+        }, 200);
     }
 
 	return (
         <div>
+            <p style={{ display: 'none' }}>{update}</p>
             <Grid container direction="column" alignItems="stretch" spacing={2}>
                 {next.map((item, index) => {
                     return (
