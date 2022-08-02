@@ -6,5 +6,8 @@
 /extension/*.d.ts
 /extension/*.d.ts.map
 /dashboard/
-/graphics/
+/graphics/*.css
+/graphics/*.html
+/graphics/*.js
+/graphics/*.html
 *.tsbuildinfo
