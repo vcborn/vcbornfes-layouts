@@ -27,7 +27,7 @@ export const App: React.FC = () => {
             <div className="absolute right-0 bg-white max-w-[40rem] w-full h-full pl-20 flex flex-col justify-center gap-4">
                 <img src="./vcborn-simple-icon.jpg" className="rounded-full w-64 h-64 mb-4" />
                 <p className="text-[5rem] font-bold font-['futura-pt']"><i>Up Next</i>&nbsp;&nbsp;&gt;&gt;</p>
-                <table className="text-stone-600 text-5xl font-semibold pb-12">
+                <table className="text-stone-600 text-5xl font-semibold mb-12">
                     {next.map((item, index) => {
                         return (
                             <tr>

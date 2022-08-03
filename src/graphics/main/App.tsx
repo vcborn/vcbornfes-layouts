@@ -29,7 +29,7 @@ export const App: React.FC = () => {
 							className="flex flex-col bg-white px-4 py-5"
 							key={index}
 						>
-							<p className="text-xl font-bold">{item.text}</p>
+							<p className="text-xl font-bold break-words">{item.text}</p>
 							<hr className="border border-gray-800 my-2" />
 							<div className="flex flex-row items-center justify-between">
 								<div className="flex gap-2 items-center">

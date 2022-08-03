@@ -49,7 +49,7 @@ module.exports = async function (nodecg: NodeCG) {
         nodecg.log.info("liveid not set")
     }
 
-    if (nodecg.bundleConfig.twitter.bearerToken !== "") {
+    if (nodecg.bundleConfig.twitter.bearerToken !== "" && nodecg.bundleConfig.twitter.keyword) {
         const twitterClient = new TwitterApi(nodecg.bundleConfig.twitter.bearerToken);
         const rules = await twitterClient.v2.streamRules();
         if (rules.data?.length) {
@@ -59,7 +59,7 @@ module.exports = async function (nodecg: NodeCG) {
         }
 
         await twitterClient.v2.updateStreamRules({
-            add: [{ value: 'JavaScript -is:retweet -is:reply' }],
+            add: [{ value: nodecg.bundleConfig.twitter.keyword }],
         });
 
         const stream = await twitterClient.v2.searchStream({

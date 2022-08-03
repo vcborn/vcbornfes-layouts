@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
 import { useReplicant } from "../../hooks";
-import { TextField, Button, Grid, List, ListItem, ListItemText, ListItemButton, IconButton } from "@mui/material";
+import { TextField, Button, Grid, IconButton } from "@mui/material";
 
 const App: React.FC = () => {
 	const [next, setNext] = useReplicant("next");
@@ -11,14 +11,16 @@ const App: React.FC = () => {
 	if (typeof next === "undefined") return null;
 
     const addNext = () => {
-        const temp = next
-        temp.push({time: time, event: event})
-        setNext(temp)
-        setTime("")
-        setEvent("")
-        setTimeout(() => {
-            setUpdate(Math.floor(Math.random() * 1000))
-        }, 200);
+        if (time !== "" && event !== "") {
+            const temp = next
+            temp.push({time: time, event: event})
+            setNext(temp)
+            setTime("")
+            setEvent("")
+            setTimeout(() => {
+                setUpdate(Math.floor(Math.random() * 1000))
+            }, 200);
+        }
     }
 
     const deleteItem = (index: number) => {
@@ -27,7 +29,7 @@ const App: React.FC = () => {
         setNext(temp)
         setTimeout(() => {
             setUpdate(Math.floor(Math.random() * 1000))
-        }, 200);
+        }, 300);
     }
 
 	return (

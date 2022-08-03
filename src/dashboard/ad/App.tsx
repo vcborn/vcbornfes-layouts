@@ -10,13 +10,15 @@ const App: React.FC = () => {
 	if (typeof ad === "undefined") return null;
 
     const addAds = () => {
-        const temp = ad
-        temp.push(value)
-        setAd(temp)
-        setValue("")
-        setTimeout(() => {
-            setUpdate(Math.floor(Math.random() * 1000))
-        }, 200);
+        if (value !== "") {
+            const temp = ad
+            temp.push(value)
+            setAd(temp)
+            setValue("")
+            setTimeout(() => {
+                setUpdate(Math.floor(Math.random() * 1000))
+            }, 200);
+        }
     }
 
     const deleteItem = (index: number) => {
@@ -25,7 +27,7 @@ const App: React.FC = () => {
         setAd(temp)
         setTimeout(() => {
             setUpdate(Math.floor(Math.random() * 1000))
-        }, 200);
+        }, 300);
     }
 
 	return (
