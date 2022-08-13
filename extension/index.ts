@@ -2,6 +2,7 @@ import { NodeCG } from "nodecg-types/types/server";
 import { TwitterApi, ETwitterStreamEvent } from "twitter-api-v2";
 import { LiveChat } from "youtube-chat"
 import { Msg, Msgs } from "../src/replicant";
+import { Message, Client } from 'discord.js'
 
 module.exports = async function (nodecg: NodeCG) {
     nodecg.log.info("vcborn-fes bundle started.");
@@ -86,5 +87,35 @@ module.exports = async function (nodecg: NodeCG) {
         });
     } else {
         nodecg.log.info("bearer token not set")
+    }
+
+    if (nodecg.bundleConfig.discord.botToken !== "") {
+        const client = new Client({
+            intents: ['Guilds', 'GuildMembers', 'GuildMessages', 'MessageContent'],
+        })
+        client.once('ready', async () => {
+            console.log('Ready!')
+            console.log(client.user?.tag)
+        })
+        client.on('messageCreate', async (message: Message) => {
+            if (message.author.bot) return
+
+            if (message.channel.id !== "1007990462914777098") return
+
+            const newMsg: Msg = {
+                id: message.id,
+                user: {
+                    profileImageUrl: message.author.avatarURL() || "",
+                    screenName: message.author.username,
+                },
+                service: "discord",
+                text: message.content.replace(/&lt;/g, "<").replace(/&gt;/g, ">"),
+                createdAt: new Date(message.createdAt).toISOString(),
+            };
+            addMsg(newMsg);
+        })
+        client.login(nodecg.bundleConfig.discord.botToken)
+    } else {
+        nodecg.log.info("bot token not set")
     }
 }
