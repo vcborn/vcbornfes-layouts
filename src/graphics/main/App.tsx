@@ -38,7 +38,7 @@ export const App: React.FC = () => {
 										className="w-6 h-6 rounded-full"
 									/>
 									<p className="pb-1">
-										{item.user.screenName}
+										{item.user.screenName.length > 10 ? (item.user.screenName).slice(0,10)+"…" : item.user.screenName}
 									</p>
 								</div>
 								{item.service === "youtube" && (
