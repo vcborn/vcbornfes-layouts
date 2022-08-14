@@ -28,7 +28,7 @@ export const App: React.FC = () => {
                 <img src="./vcborn-simple-icon.jpg" className="rounded-full w-64 h-64 mb-4" />
                 <p className="text-[5rem] font-bold font-['futura-pt']"><i>Up Next</i>&nbsp;&nbsp;&gt;&gt;</p>
                 <table className="text-stone-600 text-5xl font-semibold mb-12">
-                    {next.map((item, index) => {
+                    {next.slice(0, 3).map((item, index) => {
                         return (
                             <tr>
                                 <td className="w-44 font-['futura-pt']">{item.time}~</td>
