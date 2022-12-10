@@ -10,7 +10,7 @@ export interface ReplicantMap {
     next: next;
 }
 export declare const replicantDefaultValues: ReplicantMap;
-export declare type Msgs = {
+export type Msgs = {
     id?: string;
     createdAt: string;
     text: string;
@@ -21,10 +21,10 @@ export declare type Msgs = {
         profileImageUrl: string | undefined;
     };
 }[];
-export declare type Msg = Msgs[number];
-export declare type ad = string[];
-export declare type deck = string;
-export declare type next = {
+export type Msg = Msgs[number];
+export type ad = string[];
+export type deck = string;
+export type next = {
     time: string;
     event: string;
 }[];
