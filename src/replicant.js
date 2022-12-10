@@ -8,6 +8,7 @@ exports.replicantDefaultValues = {
         program: "プログラム"
     },
     chat: [],
+    deck: "",
     ad: [],
     next: []
 };

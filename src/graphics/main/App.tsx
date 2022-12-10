@@ -3,6 +3,7 @@ import { useReplicant } from '../../hooks'
 
 export const App: React.FC = () => {
   const [main] = useReplicant('main')
+  const [deck, setDeck] = useReplicant('deck')
   const [chat] = useReplicant('chat')
   const [data, setData] = useState(0)
   const [refreshInterval, setRefreshInterval] = useState(1000)
@@ -16,10 +17,15 @@ export const App: React.FC = () => {
     }
   }, [refreshInterval])
 
+  useEffect(() => {
+    setDeck('')
+  }, [])
+
   if (typeof main === 'undefined' || typeof chat === 'undefined') return null
 
   return (
     <div className="relative bg-primary h-screen w-full">
+      <audio autoPlay src={deck && `./effects/${deck}.mp3`}></audio>
       <p className="hidden">{data}</p>
       <div className="absolute right-0 px-8 py-8 flex flex-col gap-4 w-full max-w-[19rem] max-h-[80vh] overflow-clip">
         {chat.map((item, index) => {

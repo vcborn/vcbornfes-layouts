@@ -6,6 +6,7 @@ export interface ReplicantMap {
     };
     chat: Msgs;
     ad: ad;
+    deck: deck;
     next: next;
 }
 export declare const replicantDefaultValues: ReplicantMap;
@@ -22,6 +23,7 @@ export declare type Msgs = {
 }[];
 export declare type Msg = Msgs[number];
 export declare type ad = string[];
+export declare type deck = string;
 export declare type next = {
     time: string;
     event: string;

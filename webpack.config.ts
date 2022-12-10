@@ -70,6 +70,7 @@ const config: Configuration[] = [
   createBrowserConfig('dashboard', 'main'),
   createBrowserConfig('dashboard', 'ad'),
   createBrowserConfig('dashboard', 'next'),
+  createBrowserConfig('dashboard', 'deck'),
   createBrowserConfig('graphics', 'main'),
   createBrowserConfig('graphics', 'waiting')
 ];
