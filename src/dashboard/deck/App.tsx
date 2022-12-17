@@ -43,6 +43,15 @@ const App: React.FC = () => {
           </Button>
         </Grid>
         <Grid item xs={3}>
+          <Button
+            fullWidth
+            variant="contained"
+            onClick={() => setDeck('trumpet')}
+          >
+            トランペット
+          </Button>
+        </Grid>
+        <Grid item xs={3}>
           <Button fullWidth variant="contained" onClick={() => setDeck('')}>
             停止
           </Button>
