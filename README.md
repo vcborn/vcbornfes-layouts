@@ -7,7 +7,7 @@ This is the NodeCG bundle for the VCborn Fes.
 * NodeCG
 * twitter-api-v2
 * youtube-chat
-* swiper.js
+* splide.js
 
 ## Installation
 
