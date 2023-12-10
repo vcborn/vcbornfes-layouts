@@ -49,11 +49,11 @@
   "scripts": {
     "lint": "eslint 'src/**/*.{ts,tsx}' webpack.config.ts && tsc --noEmit --project tsconfig.webpack.json && tsc --noEmit",
     "lint:fix": "eslint --fix 'src/**/*.{ts,tsx}' webpack.config.ts && tsc --noEmit --project tsconfig.webpack.json && tsc --noEmit",
-    "build": "run-z build",
+    "build": "run-s build",
     "build:css": "npx tailwindcss -i ./src/graphics/main/main.css -o ./graphics/main.css",
     "build:webpack": "cross-env NODE_ENV='production' TS_NODE_PROJECT='tsconfig.webpack.json' webpack",
     "build:extension": "tsc --project tsconfig.ext.json",
-    "watch": "run-z watch",
+    "watch": "run-s watch",
     "watch:css": "npx tailwindcss -i ./src/graphics/main/main.css -o ./graphics/main.css --watch",
     "watch:webpack": "cross-env NODE_ENV='production' TS_NODE_PROJECT='tsconfig.webpack.json' webpack --watch",
     "watch:extension": "tsc --project tsconfig.ext.json --watch"
